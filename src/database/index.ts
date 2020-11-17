@@ -3,6 +3,8 @@ import { createConnection, getConnectionOptions, Connection } from 'typeorm';
 export default async (name = 'default'): Promise<Connection> => {
   const defaultOptions = await getConnectionOptions();
 
+  console.log("DataBase Connection STARTED")
+  
   return createConnection(
     Object.assign(defaultOptions, {
       name,
@@ -12,4 +14,5 @@ export default async (name = 'default'): Promise<Connection> => {
           : defaultOptions.database,
     }),
   );
+
 };
