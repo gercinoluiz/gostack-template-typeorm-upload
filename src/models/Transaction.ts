@@ -16,9 +16,13 @@ class Transaction {
   @Column('decimal')
   value: number;
 
-  @ManyToOne(() => Category
-  )
+  // My relationshep
+  @ManyToOne(() => Category)
   @JoinColumn({ name: 'category_id' })
+  category: Category;
+
+
+  @Column()
   category_id: string;
 
   @CreateDateColumn()
